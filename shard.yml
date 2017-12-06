@@ -1,0 +1,17 @@
+name: trillo
+version: 0.1.0
+
+authors:
+  - Kevin <kyrodriguez97@gmail.com>
+
+targets:
+  trillo:
+    main: src/trillo.cr
+
+dependencies:
+  kemal:
+    github: kemalcr/kemal
+
+crystal: 0.23.1
+
+license: MIT
