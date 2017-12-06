@@ -11,6 +11,8 @@ targets:
 dependencies:
   kemal:
     github: kemalcr/kemal
+  sqlite3:
+    github: crystal-lang/crystal-sqlite3
 
 crystal: 0.23.1
 
