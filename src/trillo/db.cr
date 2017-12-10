@@ -1,15 +1,9 @@
 require "db"
-
-require "sqlite3"
+require "pg"
 
 module Trillo::DB
-
   @@database : ::DB::Database?
-
   def self.db
-
-    @@database ||= ::DB.open "sqlite3://./data.db"
-
+    @@database ||= ::DB.open "postgres://postgres:postgres@localhost:5432/trillo"
   end
-
 end

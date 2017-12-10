@@ -2,7 +2,7 @@ name: trillo
 version: 0.1.0
 
 authors:
-  - Kevin <kyrodriguez97@gmail.com>
+  - Kevin Rodríguez <kyrodriguez97@gmail.com>
 
 targets:
   trillo:
@@ -11,8 +11,8 @@ targets:
 dependencies:
   kemal:
     github: kemalcr/kemal
-  sqlite3:
-    github: crystal-lang/crystal-sqlite3
+  pg:
+    github: will/crystal-pg
 
 crystal: 0.23.1
 
