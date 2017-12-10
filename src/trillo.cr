@@ -1,19 +1,15 @@
 require "./trillo/*"
+require "./models/*"
 require "kemal"
 
 get "/" do |env|
-  Trillo::DB.db.query("SELECT id, name FROM boards") do |rs|
-    rs.each do
-      env.response.puts("#{rs.read(Int32)} (#{rs.read(String)})")
-    end
-  end
+  boards = Trillo::DB.db.query_all("SELECT id, name FROM boards", as: Board)
+  boards.to_json
 end
 
 post "/" do |env|
-  env.response.content_type = "application/json"
   name = env.params.query["name"].to_s.as(String)
-  Trillo::DB.db.exec("INSERT INTO boards (name) values ('#{name}')")
-  {name: name}.to_json
+  Trillo::DB.db.query_all("INSERT INTO boards (name) values ('#{name}')", as: Board)
 end
 
 at_exit { Trillo::DB.db.close }
