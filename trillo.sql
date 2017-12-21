@@ -7,7 +7,7 @@ CREATE TABLE lists (
   ID SERIAL PRIMARY KEY,
   NAME TEXT NOT NULL,
   SORT INT NOT NULL,
-  board_sid INT NOT NULL REFERENCES boards(id)
+  board_id INT NOT NULL REFERENCES boards(id)
 );
 
 CREATE TABLE cards (
