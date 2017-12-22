@@ -64,6 +64,24 @@ post "/lists" do |env|
   list.to_json
 end
 
+put "/lists/:id" do |env|
+  id = env.params.url["id"].to_i
+  name = env.params.query["name"].to_s.as(String)
+  sort = env.params.query["sort"].to_i
+  board_id = env.params.query["board_id"].to_i
+  Trillo::DB.db.query_all("UPDATE lists SET name = '#{name}', sort = #{sort}, board_id = #{board_id} WHERE id = #{id}", as: List)
+  list = Trillo::DB.db.query_all("SELECT id, name, sort, board_id FROM lists WHERE ID = #{id}", as: List)
+  env.response.content_type = "application/json"
+  list.to_json
+end
+
+delete "/lists/:id" do |env|
+  id = env.params.url["id"].to_i
+  Trillo::DB.db.query_all("DELETE FROM lists WHERE id = #{id}", as: List)
+  env.response.content_type = "application/json"
+  {"message" => "List has been deleted"}.to_json
+end
+
 
 at_exit { Trillo::DB.db.close }
 
