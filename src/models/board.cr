@@ -1,11 +1,8 @@
-class Board
-  ::DB.mapping({
-    id: Int32,
-    name: String
-  })
+require "granite_orm/adapter/pg"
 
-  JSON.mapping({
-    id: Int32,
-    name: String
-  })
+class Board < Granite::ORM::Base
+  adapter pg
+  primary id : Int32
+  field name : String
+  timestamps
 end

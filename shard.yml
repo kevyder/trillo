@@ -11,8 +11,12 @@ targets:
 dependencies:
   kemal:
     github: kemalcr/kemal
+  granite_orm:
+    github: amberframework/granite-orm
   pg:
     github: will/crystal-pg
+  db:
+    github: crystal-lang/crystal-db
 
 crystal: 0.23.1
 

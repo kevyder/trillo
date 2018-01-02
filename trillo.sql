@@ -1,12 +1,16 @@
 CREATE TABLE boards(
   ID SERIAL PRIMARY KEY,
   NAME TEXT NOT NULL
+  created_at TIMESTAMP
+  updated_at TIMESTAMP
 );
 
 CREATE TABLE lists (
   ID SERIAL PRIMARY KEY,
   NAME TEXT NOT NULL,
   SORT INT NOT NULL,
+  created_at TIMESTAMP
+  updated_at TIMESTAMP
   board_id INT NOT NULL REFERENCES boards(id)
 );
 
@@ -14,5 +18,7 @@ CREATE TABLE cards (
   ID SERIAL PRIMARY KEY,
   DESCRIPTION TEXT NOT NULL,
   SORT INT NOT NULL,
+  created_at TIMESTAMP
+  updated_at TIMESTAMP
   list_id INT NOT NULL REFERENCES lists(id)
 );
