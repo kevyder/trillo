@@ -1,22 +1,18 @@
 # trillo
 
-TODO: Write a description here
+A Trello api clone in Kemal
 
 ## Installation
 
-TODO: Write installation instructions here
+1. Install dependenciies
 
-## Usage
-
-TODO: Write usage instructions here
-
-## Development
-
-TODO: Write development instructions here
+```bash
+shards install
+```
 
 ## Contributing
 
-1. Fork it ( https://github.com/[your-github-name]/trillo/fork )
+1. Fork it ( https://github.com/kevyder/trillo/fork )
 2. Create your feature branch (git checkout -b my-new-feature)
 3. Commit your changes (git commit -am 'Add some feature')
 4. Push to the branch (git push origin my-new-feature)
@@ -24,4 +20,4 @@ TODO: Write development instructions here
 
 ## Contributors
 
-- [[your-github-name]](https://github.com/[your-github-name]) Kevin - creator, maintainer
+- [[kevyder]](https://github.com/[kevyder]) Kevin - creator, maintainer
