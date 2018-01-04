@@ -1,6 +1,6 @@
 require "db"
 require "./trillo/version"
-require "./models/board"
+require "./models/*"
 require "kemal"
 
 # Boards
@@ -41,13 +41,24 @@ delete "/boards/:id" do |env|
   env.response.content_type = "application/json"
   { "message" => "Board has been deleted" }.to_json
 end
-#
-# # Lists
-# get "/lists" do |env|
-#   lists = db.query("SELECT id, name, sort, board_id FROM lists", List)
-#   env.response.content_type = "application/json"
-#   lists.to_json
-# end
+
+# Lists
+get "/lists" do |env|
+  board_id = nil
+
+  if env.params.query.includes? "board_id"
+    board_id = env.params.query["board_id"].to_i
+  end
+
+  if board_id
+    lists = List.all("WHERE id = #{board_id}")
+  else
+    lists = List.all
+  end
+
+  env.response.content_type = "application/json"
+  lists.to_json
+end
 #
 # get "/lists/:id" do |env|
 #   id = env.params.url["id"].to_i
